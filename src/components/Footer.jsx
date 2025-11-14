@@ -6,7 +6,7 @@ function Footer() {
             <div className="max-w-screen-xl mx-auto px-5 py-8 flex flex-col md:flex-row justify-between items-start gap-8">
 
                 <div className="text-sm ">
-                    <p>© 2025 Sekar Ajeng. All rights reserved.</p>
+                    <p className="!text-white">© 2025 Sekar Ajeng. All rights reserved.</p>
                 </div>
 
 
@@ -14,8 +14,8 @@ function Footer() {
                 <h3 className="text-white font-semibold text-xl mb-2">Navigation</h3>
                 <ul className="space-y-1">
                     <li><NavLink to="/" className="text-white font-medium hover:underline">Home</NavLink></li>
-                    <li><NavLink to="/project" className="text-white font-medium hover:underline">Projects</NavLink></li>
-                    <li><NavLink to="/about-me" className="text-white font-medium hover:underline">About Me</NavLink></li>
+                    <li><NavLink to="/projects" className="text-white font-medium hover:underline">Projects</NavLink></li>
+                    <li><NavLink to="/about" className="text-white font-medium hover:underline">About Me</NavLink></li>
                 </ul>
                 </div>
 
@@ -32,7 +32,7 @@ function Footer() {
                     </li>
                     <li className="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    <a href="https://linkedin.com/in/sekarajeng16" className="hover:underline">Sekar Ajeng Suprobo Mukti</a>
+                    <a href="https://linkedin.com/in/sekarajeng643" className="hover:underline">Sekar Ajeng Suprobo Mukti</a>
                     </li>
                 </ul>
                 </div>

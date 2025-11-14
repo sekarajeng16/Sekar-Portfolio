@@ -1,71 +1,122 @@
+import { useEffect } from "react";
+import { useInView } from "/src/hooks/useInView.js"
+
 function About () {
+    const [aboutRef, aboutVisible] = useInView();
+    const [expRef, expVisible] = useInView();
+
+    useEffect(() => {
+        document.title = "About Me";
+    }, []);
+    
     return (
-        <div className="p-10">
-            <section className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-20 max-w-5xl mx-auto">
+        <div className="p-10 mt-20">
+            <img
+                src="/image/asset/bg.png"
+                alt="background pattern"
+                className="absolute inset-0 w-full h-full object-cover -z-10"
+            />
+            <section ref={aboutRef} className={`flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-20 max-w-5xl mx-auto ${
+                aboutVisible ? "animate-floatIn opacity-100" : "opacity-0 translate-y-10"
+            }`}>
                 <img className="w-full max-w-sm rounded-2xl object-cover" src="/image/person/me.jpeg" alt="About me picture" />
                 
                 <div className="text-justify">
                     <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl">Hi I'm Sekar</h1>
                     <p className="">
-                        I'm currently a senior at Binus University, who loves to create a clean and fun design to applied into my webs design.
-                        I specialize in front-end development and UI/UX Design, and love crafting smooth, user-friendly experiences.
-                        My favorite tools are Figma for designing, React and Tailwind CSS for building interfaces, and Laravel when I’m working fullstack.
-                        I'm always excited to learn new things, collaborate with others, and create meaningful digital experiences that people enjoy using.
-
+                        I love creating clean and enjoyable web experiences that feel good to use.
+                        I’m passionate about front-end development and UI/UX design finding that sweet spot between functionality and beautiful design.
+                        I enjoy bringing ideas to life with Figma, React, Tailwind CSS, and sometimes Laravel when I go fullstack.
+                        I’m always curious to learn new things, collaborate with others, and build digital experiences that make a real difference.
                     </p>
+
+                    <div className="hidden md:flex md:mt-8 justify-center gap-3">
+                    <a href="https://linkedin.com/in/sekarajeng643"className="btn">Contact Me</a>
+                    <a href="/file/CV_ATS_English.pdf" download={"Sekar_Ajeng_CV.pdf"} className="btn">Download My CV</a>
+                </div>
+                </div>
+
+                <div className="flex md:hidden justify-center gap-3">
+                    <a href=""className="btn">Contact Me</a>
+                    <a href="" download={"Sekar_Ajeng_CV.pdf"} className="btn">Download My CV</a>
                 </div>
             </section>
 
-            <section className="mt-10 py-24">
+            <section ref={expRef} className={`mt-10 py-24 p-5 md:p-10 ${expVisible ? "animate-floatIn opacity-100" : "opacity-0 translate-y-10"}`}>
                 <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl">Work Experience</h1>
-                <div className="bg-white flex flex-col border-l-8 border-[#8B8FC6] p-6 min-h-[100px] rounded-md shadow-md max-w-3xl">
-                    <div className="flex justify-between items-center w-full">
-                        <h3 className="text-xl font-semibold">Fullstack Developer Intern</h3>
-                        <p className="text-gray font-medium">February 2024 - February 2025</p>
+                <div className="flex flex-col-reverse md:flex-row-reverse gap-7 mt-15  scroll-smooth overflow-x-auto hide-scrollbar">
+                    <div className="bg-white flex  flex-shrink-0 flex-col border-l-10 border-[#8B8FC6] p-6 min-h-[100px] rounded-md shadow-md max-w-3xl">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-1 sm:gap-2">
+                            <div>
+                                <h3 className="text-base sm:text-lg font-semibold text-gray-900">
+                                Fullstack Developer Intern
+                                </h3>
+                                <h4 className="text-sm sm:text-base font-medium text-gray-700">
+                                Cyberindo Aditama (CBN)
+                                </h4>
+                            </div>
+                            <p className="text-xs sm:text-sm font-medium text-gray-600">
+                                February 2024 - February 2025
+                            </p>
+                        </div>
+
+
+                        <ul className="list-disc list-inside space-y-2 text-justify mt-5">
+                            <li>
+                                Developed and maintained the OMS (Office Management System) website, ensuring seamless functionality and an intuitive user experience.
+                            </li>
+                            <li>
+                                Worked on both frontend and backend, leveraging Laravel, JavaScript, and modern UI frameworks to build and enhance features.
+                            </li>
+                            <li>
+                                Designed and implemented UI/UX improvements to optimize navigation and overall usability.
+                            </li>
+                            <li>
+                                Implemented key functionalities to streamline reservation processes and event management activities, significantly enhancing operational efficiency.
+                            </li>
+                            <li>
+                                Collaborated with the team to debug, test, and optimize performance, ensuring system stability and responsiveness.
+                            </li>
+                        </ul>
+
                     </div>
 
-                    <ul className="list-disc list-inside space-y-2 text-justify mt-5">
-                        <li>
-                            Developed and maintained the OMS (Office Management System) website, ensuring seamless functionality and an intuitive user experience.
-                        </li>
-                        <li>
-                            Worked on both frontend and backend, leveraging Laravel, JavaScript, and modern UI frameworks to build and enhance features.
-                        </li>
-                        <li>
-                            Designed and implemented UI/UX improvements to optimize navigation and overall usability.
-                        </li>
-                        <li>
-                            Implemented key functionalities to streamline reservation processes and event management activities, significantly enhancing operational efficiency.
-                        </li>
-                        <li>
-                            Collaborated with the team to debug, test, and optimize performance, ensuring system stability and responsiveness.
-                        </li>
-                    </ul>
+                    <div className="bg-white flex  flex-shrink-0 flex-col border-l-8 border-[#8B8FC6] p-6 min-h-[100px] rounded-md shadow-md max-w-3xl">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-1 sm:gap-2">
+                            <div>
+                                <h3 className="text-base sm:text-lg font-semibold text-gray-900">Fullstack Developer Intern - Jakarta</h3>
+                                <h4 className="text-sm sm:text-base font-medium text-gray-700">Birudesa Hypermedia</h4>
+                            </div>
+                            <p className="text-sm sm:text-base font-medium text-gray-700">August 2025 - Now</p>
+                        </div>
 
+
+                        <ul className="list-disc list-inside space-y-2 text-base leading-relaxed text-gray-700 mt-5">
+                            <li>
+                                Developed and maintained a responsive internal company website using 
+                                <span className="font-medium"> React.js (frontend) </span> and 
+                                <span className="font-medium"> Laravel (backend) </span> to support business operational needs.
+                            </li>
+                            <li>
+                                Designed and refined user interfaces (UI/UX) in 
+                                <span className="font-medium"> Figma </span>, focusing on creating modern, intuitive, and device-optimized layouts.
+                            </li>
+                            <li>
+                                Conducted 
+                                <span className="font-medium"> User Acceptance Testing (UAT) </span> and 
+                                <span className="font-medium"> Blackbox Testing </span> to ensure system reliability, stability, and quality before deployment to the production environment.
+                            </li>
+                            <li>
+                                Collaborated with cross-functional teams to align development outcomes with company objectives and improve workflow efficiency.
+                            </li>
+                        </ul>
+
+
+                    </div>
                 </div>
+                
             </section>
 
-            <section class="mt-20">
-                <h2 class="font-bold text-center text-3xl md:text-4xl lg:text-5xl">
-                    What do I do when I’m not working
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="bg-white rounded-xl shadow-md p-6 flex flex-col sm:w-1/3  hover:shadow-2xl transition-shadow duration-300">
-                        <img src="" className="rounded-xl mb-5" alt="" />
-                        <p className="mt-4 text-center">Playing with my cat</p>
-                    </div>
-
-                    <div className="bg-white rounded-xl shadow-md p-6 flex flex-col sm:w-1/3  hover:shadow-2xl transition-shadow duration-300">
-                        <img src="" className="rounded-xl mb-5" alt="" />
-                        <p className="mt-4 text-center">Go to a cafe</p>
-                    </div>
-
-                    <div className="bg-white rounded-xl shadow-md p-6 flex flex-col sm:w-1/3  hover:shadow-2xl transition-shadow duration-300">
-                        <img src="" className="rounded-xl mb-5" alt="" />
-                        <p className="mt-4 text-center">Playing Game</p>
-                    </div>
-                </div>
-            </section>
         </div>
     )
 }

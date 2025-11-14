@@ -12,7 +12,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <div className='px-5 sm:px-3 mt-10'>
+        <Navbar />
+      </div>
 
       <Routes>
         <Route path="/" element={<Home />} />

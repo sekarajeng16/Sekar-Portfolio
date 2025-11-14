@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectDetail from "../data/ProjectData";
+import { useInView } from "../hooks/useInView";
 
 
 function ProjectList() {
     const [selectedTech, setSelectedTech] = useState("");
     const [selectedType, setSelectedType] = useState("");
+    const [ref, isVisible] = useInView();
+
 
     const filteredProjects = ProjectDetail.filter((project) => {
         const matchesTech = selectedTech ? project.techStack.includes(selectedTech) : true;
@@ -13,13 +16,22 @@ function ProjectList() {
         return matchesTech && matchesType;
     });
 
+    useEffect(() => {
+        document.title = "Projects";
+    }, []);
+
     return (
-        <div className="mt-5 p-10">
+        <div ref={ref} className={`mt-5 p-5 md:p-10 ${isVisible ? "animate-floatIn opacity-100" : "opacity-0 translate-y-10"}`}>
+            <img
+                src="/image/asset/bg.png"
+                alt="background pattern"
+                className="absolute inset-0 w-full h-full object-cover -z-10"
+            />
             <section className="px-6 flex flex-col justify-center items-center">
-                <h1 className="font-bold text-3xl">My Projects</h1>
+                <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl">My Projects</h1>
 
                 <div className="flex flex-col md:flex-row justify-evenly gap-4 md:gap-10 mt-10 w-full max-w-3xl ">
-                    <select className="py-3 bg-primary text-white text-base font-normal rounded-md focus:outline-none" name="Technology" id="selectTechnology" 
+                    <select className="px-4 py-3 bg-primary text-white text-base font-normal rounded-md focus:outline-none" name="Technology" id="selectTechnology" 
                      value={selectedTech} onChange={(e) => setSelectedTech(e.target.value)}>
                         <option className="bg-white text-black" value="">Choose the Technology</option>
                         <option className="bg-white text-black" value="Laravel">Laravel</option>
@@ -37,8 +49,8 @@ function ProjectList() {
 
             </section>
 
-            <section className="px-10 py-24">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            <section className="px-5 md:px-10 py-24">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
                     {filteredProjects.map((project) => (
                         <div key={project.id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-2xl transition-shadow duration-300">
                             <img src={project.image} className="rounded-xl mb-5" alt={`${project.title} picture`} />

@@ -1,9 +1,11 @@
+
 import { NavLink } from "react-router-dom";
 
 function Navbar () {
+    
     return (
         <div className="bg-primary rounded-full text-white flex justify-between items-center px-5 py-3 max-w-2xl mx-auto mt-5">
-            <div className="mt-4 md:mb-0">
+            <div className="flex justify-center items-center mt-4 md:mb-0">
                 <h3 className="text-xl font-bold">Sekar</h3>
             </div>
             
