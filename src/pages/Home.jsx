@@ -118,7 +118,7 @@ function Home() {
                             like React and Tailwind CSS.
                         </p>
                         <br />
-                        <a href="/file/CV_ATS_English.pdf" download={"Sekar_Ajeng_CV.pdf"} className="btn font-medium mt-8">Download my CV</a>
+                        <a href="/file/Front End CV.pdf" download={"Sekar_Ajeng_CV.pdf"} className="btn font-medium mt-8">Download my CV</a>
                     </div>
                 </div>
             </section>

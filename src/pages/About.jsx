@@ -32,7 +32,7 @@ function About () {
 
                     <div className="hidden md:flex md:mt-8 justify-center gap-3">
                     <a href="https://linkedin.com/in/sekarajeng643"className="btn">Contact Me</a>
-                    <a href="/file/CV_ATS_English.pdf" download={"Sekar_Ajeng_CV.pdf"} className="btn">Download My CV</a>
+                    <a href="/file/Front End CV.pdf" download={"Sekar_Ajeng_CV.pdf"} className="btn">Download My CV</a>
                 </div>
                 </div>
 
